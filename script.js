@@ -129,6 +129,17 @@ let lastScrollTop = 0;
         sidebar.classList.toggle('visible');
     });
 
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+    
+    document.onkeydown = function(e) {
+      if (e.keyCode == 123) { // Disable F12
+        return false;
+      }
+    };
+    
+
     // Fade-in effect for hero content
     window.addEventListener('DOMContentLoaded', function () {
       document.querySelector('.hero-content').classList.add('show');
