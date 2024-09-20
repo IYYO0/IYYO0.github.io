@@ -1,0 +1,410 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #222831; /* Background utama */
+    color: #EEEEEE; /* Teks cerah */
+  }
+
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(49, 54, 63, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: -60px; /* Adjust based on the height of the navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s ease, opacity 0.3s ease; /* Add transition for top */
+    opacity: 0;
+  }
+
+  .navbar.visible {
+    top: 0;
+    opacity: 1;
+  }
+
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #EEEEEE;
+  }
+
+  .highlight {
+    color: #76ABAE; /* Warna aksen untuk I dan O */
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .navbar .nav-item {
+    padding: 10px 20px;
+    background-color: rgba(49, 54, 63, 0.8);
+    color: #EEEEEE;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .navbar .nav-item:hover {
+    background-color: #76ABAE;
+    box-shadow: 0 4px 15px rgba(118, 171, 174, 0.5);
+    cursor: pointer;
+  }
+
+  .navbar .nav-item a {
+    text-decoration: none;
+    color:#EEEEEE;
+  }
+
+
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    background: url('hero-bg.jpg') no-repeat center center/cover; /* Optional background image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .hero-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .midlight {
+    color: hsl(0, 1%, 83%); /* Sesuaikan dengan color palette */
+    text-shadow: 0 0 5px #76ABAE, 0 0 10px #76ABAE, 0 0 15px #76ABAE; /* Efek glow */
+    animation: glow 1.5s infinite alternate;
+}
+
+  .hero-content.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-content h1 {
+    font-size: 48px;
+    color: #EEEEEE;
+    margin-bottom: 20px;
+  }
+
+  .hero-content h2 {
+    font-size: 28px;
+    color: #99d3d6;
+    margin-bottom: 10px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #EEEEEE;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    background-color: #76ABAE;
+    color: #222831;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #EEEEEE;
+    color: #222831;
+  }
+
+  /* Skills Section */
+  .skills {
+    padding: 50px 0;
+    background: #222831;
+    background: linear-gradient(270deg,#222831 0%, #31363f 100%);
+    background: -webkit-linear-gradient(270deg,#222831 0%, #31363f 100%);
+    background: -moz-linear-gradient(270deg,#222831 0%, #31363f 100%);
+    text-align: center;
+  }
+
+  .skills h2 {
+    font-size: 32px;
+    color: #EEEEEE;
+    margin-bottom: 30px;
+  }
+
+  .skills-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 50px;
+  }
+
+  .skill {
+    background-color: #222831;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .skill:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .skill h3 {
+    font-size: 24px;
+    color: #76ABAE;
+    margin-bottom: 10px;
+  }
+
+  .skill p {
+    font-size: 16px;
+    color: #EEEEEE;
+  }
+
+  /* Footer */
+  .footer {
+    background-color: #222831;
+    text-align: center;
+    padding: 20px 0;
+    color: #EEEEEE;
+  }
+
+  .typing-text {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    white-space: nowrap; /* Agar teks tidak terputus */
+    overflow: hidden; /* Sembunyikan teks saat dihapus */
+    border-right: 3px solid white; /* Efek kursor */
+    margin-right: 7px
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #EEEEEE;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Mulai dari luar layar */
+  width: 250px;
+  height: 100%;
+  background-color: rgba(49, 54, 63, 0.9);
+  transition: left 0.3s ease;
+  padding: 20px;
+  z-index: 1001;
+}
+
+.sidebar.visible {
+  left: 0; /* Tampilkan sidebar */
+}
+
+@media only screen and (min-width: 481px) {
+  .sidebar {
+      display: none; /* Sembunyikan di desktop */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 26px;
+    color: #EEEEEE;
+    margin-bottom: 10px;
+  }
+
+  .greeting {
+    display: block; /* Membuat teks berada di baris baru */
+    font-size: 18px; /* Ukuran font untuk greeting */
+    color: #EEEEEE;; /* Sesuaikan warna */
+    margin-bottom: 6px;
+    text-align: start;
+    text-align: center;
+}
+
+
+  .hero-content h2 {
+    font-size: 15px;
+    color: #99d3d6;
+    margin-bottom: 10px;
+  }
+
+  .typing-text {
+    font-size: 15px;
+    color: #EEEEEE;
+    margin-bottom: 10px;
+    white-space: nowrap; /* Agar teks tidak terputus */
+    overflow: hidden; /* Sembunyikan teks saat dihapus */
+    border-right: 3px solid white; /* Efek kursor */
+    margin-right: 7px
+}
+
+.hero-content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #EEEEEE;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #76ABAE;
+  color: #222831;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 13px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #EEEEEE;
+  color: #222831;
+}
+
+.footer {
+  background-color: #222831;
+  text-align: center;
+  padding: 15px 0;
+  color: #EEEEEE;
+  font-size: 12px;
+}
+
+  /* Skills Section */
+  .skills {
+    padding: 50px 0;
+    background-color: #31363F;
+    text-align: center;
+  }
+
+  .skills h2 {
+    font-size: 25px;
+    color: #EEEEEE;
+    margin-bottom: 30px;
+  }
+
+  .skills-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 50px;
+    flex-wrap: wrap;
+  }
+
+  .skill {
+    background-color: #222831;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .skill:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .skill h3 {
+    font-size: 24px;
+    color: #76ABAE;
+    margin-bottom: 10px;
+  }
+
+  .skill p {
+    font-size: 16px;
+    color: #EEEEEE;
+  }
+
+  .nav-links {
+    display: none; /* Sembunyikan nav-links di mobile */
+  }
+  .hamburger {
+      display: block; /* Tampilkan hamburger icon di mobile */
+  }
+
+/* Nav Links di Sidebar */
+.sidebar .nav-links {
+  display: flex;
+  flex-direction: column; /* Susun secara vertikal */
+}
+
+.sidebar .nav-item {
+  margin-bottom: 10px; /* Jarak antar item */
+}
+
+.sidebar .nav-item a {
+  display: block; /* Membuat link menjadi block element */
+  padding: 20px 20px;
+  color: #EEEEEE;
+  text-decoration: none; /* Menghilangkan garis bawah */
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Tambahkan transform dan shadow */
+}
+
+.sidebar .nav-item a:hover {
+  background-color: rgba(54, 58, 66, 0.507); /* Warna saat hover */
+  transform: scale(1.00); /* Efek zoom */
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3); /* Bayangan untuk efek 3D */
+}
+
+.highlight {
+  color: #76ABAE; /* Warna aksen untuk I dan O */
+}
+
+.sidebar .logo {
+  background-color: #222831; /* Background logo */
+  margin-bottom: 25px;
+  color: #EEEEEE; /* Warna teks logo */
+  font-size: 24px; /* Ukuran font logo */
+  text-align: center; /* Pusatkan teks logo */
+  padding: 13px 0; /* Padding atas dan bawah */
+  flex: 0 0 auto; /* Menghindari logo untuk mengisi ruang yang tidak perlu */
+}
+
+/* Styling untuk Nav Item */
+.sidebar {
+  padding: 0;
+}
+
+.hero-content p {
+  width: 80%;
+}
+}
+
+
+  @keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #76ABAE, 0 0 10px #76ABAE, 0 0 15px #76ABAE;
+    }
+    100% {
+        text-shadow: 0 0 5px #76ABAE, 0 0 20px #0ea7ff, 0 0 40px #76ABAE;
+    }
+}
