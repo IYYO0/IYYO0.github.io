@@ -263,7 +263,7 @@
 
   /* Footer */
   .footer {
-    background-color: #222831;
+    background-color: #1d232d;
     text-align: center;
     padding: 20px 0;
     color: #EEEEEE;
@@ -362,6 +362,37 @@ a {
   background-size: 400% 400%;
   animation: animate-border 4s linear infinite;
   z-index: 1;
+}
+
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* Memusatkan secara horizontal */
+  align-items: center; /* Memusatkan secara vertikal */
+  flex-wrap: wrap; /* Agar ikon tetap dalam satu baris */
+}
+
+.social-icons a { 
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem; /* Ukuran lebih kecil */
+  height: 3rem; /* Ukuran lebih kecil */
+  background-color: transparent;
+  border: 0.1rem solid #eeeeee4b; /* Ukuran border lebih kecil */
+  font-size: 1.5rem; /* Ukuran font lebih kecil */
+  border-radius: 50%;
+  margin: 0 1rem; /* Margin bisa disesuaikan */
+  margin-bottom: 100px;
+  transition: 0.3s ease;
+  color: #eeeeee4b; 
+}
+
+.social-icons a:hover {
+  color: #EEEEEE;
+  transform: scale(1.2) translateY(-5px); /* Skala lebih kecil */
+  background-color: #76ABAE;
+  box-shadow: 0  0 20px #76ABAE; /* Ukuran shadow lebih kecil */
 }
 
 @keyframes animate-border {
@@ -581,7 +612,7 @@ a {
 }
 
 .footer {
-  background-color: #222831;
+  background-color: #1d232d;
   text-align: center;
   padding: 15px 0;
   color: #EEEEEE;
@@ -774,6 +805,37 @@ a {
   height: 220px;
   opacity: 1;
 }
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* Memusatkan secara horizontal */
+  align-items: center; /* Memusatkan secara vertikal */
+  flex-wrap: wrap; /* Agar ikon tetap dalam satu baris */
+}
+
+.social-icons a { 
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem; /* Ukuran lebih kecil */
+  height: 2.5rem; /* Ukuran lebih kecil */
+  background-color: transparent;
+  border: 0.1rem solid #eeeeee4b; /* Ukuran border lebih kecil */
+  font-size: 1.2rem; /* Ukuran font lebih kecil */
+  border-radius: 50%;
+  margin: 0 1rem; /* Margin bisa disesuaikan */
+  margin-bottom: 100px;
+  transition: 0.3s ease;
+  color: #eeeeee4b; 
+}
+
+.social-icons a:hover {
+  color: #EEEEEE;
+  transform: scale(1.2) translateY(-5px); /* Skala lebih kecil */
+  background-color: #76ABAE;
+  box-shadow: 0  0 20px #76ABAE; /* Ukuran shadow lebih kecil */
+}
+
 
 }
 
