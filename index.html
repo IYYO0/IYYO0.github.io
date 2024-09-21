@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IYYO</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
- <!-- Navbar -->
- <nav class="navbar" id="navbar">
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
     <div class="logo">
       <span class="highlight">I</span>YY<span class="highlight">O</span>
     </div>
     <!-- Hamburger Icon -->
-  <div class="hamburger" id="hamburger">
-    &#9776; <!-- Simbol hamburger -->
-  </div>
+    <div class="hamburger" id="hamburger">
+      &#9776; <!-- Simbol hamburger -->
+    </div>
     <div class="nav-links">
       <div class="nav-item"><a href="#home">Home</a></div>
       <div class="nav-item"><a href="#about">About </a></div>
@@ -37,7 +39,6 @@
     </div>
 </div>
 
-
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div id="particles-js"></div>
@@ -49,24 +50,95 @@
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section class="skills" id="skills">
-    <h2>My Skills</h2>
-    <div class="skills-container">
-      <div class="skill">
-        <h3>Design</h3>
-        <p>Creative and visually appealing designs using modern tools.</p>
+  <!-- Goals Section -->
+  <section class="goals" id="goals">
+    <h2>My Goals</h2>
+    <div class="goals-container">
+      <div class="goal">
+        <h3>Go to Mecca</h3>
+        <p>Not just me but my entire family aamiin.</p>
       </div>
-      <div class="skill">
-        <h3>Coding</h3>
-        <p>Clean and efficient code in web development, especially in React and JavaScript.</p>
+      <div class="goal">
+        <h3>Work with Google</h3>
+        <p>Google workspace looking nice, chill & futuristic</p>
       </div>
-      <div class="skill">
-        <h3>Video Editing</h3>
-        <p>High-quality video editing with attention to detail and storytelling.</p>
+      <div class="goal">
+        <h3>Discipline </h3>
+        <p>Im always not discipline on everythings, i want i have commitment on good things</p>
       </div>
     </div>
   </section>
+  <section class="about-me" id="aboutme">
+    <h2>A Bit About Me</h2>
+    <h1>Who Am I?</h1>
+    <div class="profile">
+        <img src="dario.png" alt="Your Profile Picture" />
+    </div>
+    <p>Hello! I'm Muhammad Dario Eshan, a high school student with a passion for design, web development, and drawing. I love exploring the world of coding, enjoy watching anime, and appreciate moments of peace and tranquility.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+          <i class="fas fa-paint-brush"></i>
+          <h3>Design</h3>
+      </div>
+      <div class="skill-card">
+        <i class="fa-solid fa-code"></i>
+          <h3>Web Dev</h3>
+      </div>
+      <div class="skill-card">
+          <i class="fas fa-cogs"></i>
+          <h3>Software</h3>
+      </div>
+      <div class="skill-card">
+        <i class="fa-solid fa-question"></i>
+          <h3>Unknown</h3>
+      </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <h2>My Work</h2>
+  <div class="work-nav">
+      <a href="#design" class="nav-link active" data-category="design">design</a>
+      <a href="#web" class="nav-link" data-category="web">web</a>
+      <a href="#software" class="nav-link" data-category="software">software</a>
+      <a href="#other" class="nav-link" data-category="other">???</a>
+  </div>
+  
+  <div class="work-content">
+      <div class="work-grid" id="design">
+          <div class="work-item"></div>
+          <div class="work-item"></div>
+          <div class="work-item"></div>
+          <div class="work-item"></div>
+      </div>
+      <div class="work-grid" id="web" style="display: none;">
+        <div class="work-item"></div>
+        <div class="work-item"></div>
+        <div class="work-item"></div>
+        <div class="work-item"></div>
+
+      </div>
+      <div class="work-grid" id="software" style="display: none;">
+        <div class="work-item"></div>
+        <div class="work-item"></div>
+        <div class="work-item"></div>
+        <div class="work-item"></div>
+      </div>
+      <div class="work-grid" id="other" style="display: none;">
+        <div class="work-item"></div>
+        <div class="work-item"></div>
+        <div class="work-item"></div>
+        <div class="work-item"></div>
+      </div>
+      <div class="work-details">
+          <h1>H1</h1>
+          <p>P</p>
+      </div>
+  </div>
+</section>
+
+
 
   <!-- Footer -->
   <footer class="footer">

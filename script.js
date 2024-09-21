@@ -138,6 +138,32 @@ let lastScrollTop = 0;
         return false;
       }
     };
+
+    // Ambil semua link navigasi
+const navLinks = document.querySelectorAll('.nav-link');
+const workGrids = document.querySelectorAll('.work-grid');
+
+// Fungsi untuk mengganti konten sesuai kategori yang diklik
+navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();  // Mencegah aksi default
+
+        // Hilangkan 'active' dari semua link dan tambahkan ke link yang diklik
+        navLinks.forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+
+        // Sembunyikan semua grid dan tampilkan grid yang sesuai dengan kategori yang dipilih
+        const category = this.getAttribute('data-category');
+        workGrids.forEach(grid => {
+            if (grid.id === category) {
+                grid.style.display = 'grid';
+            } else {
+                grid.style.display = 'none';
+            }
+        });
+    });
+});
+
     
 
     // Fade-in effect for hero content
