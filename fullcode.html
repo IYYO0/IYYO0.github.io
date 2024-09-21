@@ -3,556 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IYYO</title>
-  <style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #222831; /* Background utama */
-    color: #EEEEEE; /* Teks cerah */
-  }
-
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(49, 54, 63, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: -60px; /* Adjust based on the height of the navbar */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    z-index: 1000;
-    transition: top 0.3s ease, opacity 0.3s ease; /* Add transition for top */
-    opacity: 0;
-  }
-
-  .navbar.visible {
-    top: 0;
-    opacity: 1;
-  }
-
-  .logo {
-    font-family: 'Poppins', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #EEEEEE;
-  }
-
-  .highlight {
-    color: #76ABAE; /* Warna aksen untuk I dan O */
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 20px;
-  }
-
-  .nav-item {
-    padding: 10px 20px;
-    background-color: rgba(49, 54, 63, 0.8);
-    color: #EEEEEE;
-    border-radius: 20px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .nav-item:hover {
-    background-color: #76ABAE;
-    box-shadow: 0 4px 15px rgba(118, 171, 174, 0.5);
-    cursor: pointer;
-  }
-
-  /* Hero Section */
-  .hero {
-    height: 100vh;
-    background: url('hero-bg.jpg') no-repeat center center/cover; /* Optional background image */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-  }
-
-  #particles-js {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
-
-  .hero-content {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
-  }
-
-  .midlight {
-    color: hsl(0, 1%, 83%); /* Sesuaikan dengan color palette */
-    text-shadow: 0 0 5px #76ABAE, 0 0 10px #76ABAE, 0 0 15px #76ABAE; /* Efek glow */
-    animation: glow 1.5s infinite alternate;
-}
-
-  .hero-content.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .hero-content h1 {
-    font-size: 48px;
-    color: #EEEEEE;
-    margin-bottom: 20px;
-  }
-
-  .hero-content h2 {
-    font-size: 28px;
-    color: #99d3d6;
-    margin-bottom: 10px;
-  }
-
-  .hero-content p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #EEEEEE;
-  }
-
-  .btn {
-    padding: 10px 20px;
-    background-color: #76ABAE;
-    color: #222831;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn:hover {
-    background-color: #EEEEEE;
-    color: #222831;
-  }
-
-  /* Skills Section */
-  .skills {
-    padding: 50px 0;
-    background-color: #31363F;
-    text-align: center;
-  }
-
-  .skills h2 {
-    font-size: 32px;
-    color: #EEEEEE;
-    margin-bottom: 30px;
-  }
-
-  .skills-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 0 50px;
-  }
-
-  .skill {
-    background-color: #222831;
-    padding: 20px;
-    border-radius: 10px;
-    width: 30%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .skill:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
-
-  .skill h3 {
-    font-size: 24px;
-    color: #76ABAE;
-    margin-bottom: 10px;
-  }
-
-  .skill p {
-    font-size: 16px;
-    color: #EEEEEE;
-  }
-
-  /* Footer */
-  .footer {
-    background-color: #222831;
-    text-align: center;
-    padding: 20px 0;
-    color: #EEEEEE;
-  }
-
-  .typing-text {
-    font-size: 28px;
-    color: #ffffff;
-    margin-bottom: 10px;
-    white-space: nowrap; /* Agar teks tidak terputus */
-    overflow: hidden; /* Sembunyikan teks saat dihapus */
-    border-right: 3px solid white; /* Efek kursor */
-    margin-right: 7px
-}
-
-@media only screen and (max-width: 480px) {
-  .hero-content h1 {
-    font-size: 26px;
-    color: #EEEEEE;
-    margin-bottom: 10px;
-  }
-
-  .greeting {
-    display: block; /* Membuat teks berada di baris baru */
-    font-size: 18px; /* Ukuran font untuk greeting */
-    color: #EEEEEE;; /* Sesuaikan warna */
-    margin-bottom: 5px;
-    text-align: start;
-    margin-left: 10%;
-}
-
-
-  .hero-content h2 {
-    font-size: 15px;
-    color: #99d3d6;
-    margin-bottom: 10px;
-  }
-
-  .typing-text {
-    font-size: 15px;
-    color: #EEEEEE;
-    margin-bottom: 10px;
-    white-space: nowrap; /* Agar teks tidak terputus */
-    overflow: hidden; /* Sembunyikan teks saat dihapus */
-    border-right: 3px solid white; /* Efek kursor */
-    margin-right: 7px
-}
-
-.hero-content p {
-  font-size: 14px;
-  margin-bottom: 25px;
-  color: #EEEEEE;
-}
-
-.btn {
-  padding: 10px 20px;
-  background-color: #76ABAE;
-  color: #222831;
-  text-decoration: none;
-  border-radius: 30px;
-  font-size: 13px;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #EEEEEE;
-  color: #222831;
-}
-
-.footer {
-  background-color: #222831;
-  text-align: center;
-  padding: 15px 0;
-  color: #EEEEEE;
-  font-size: 12px;
-}
-
-  /* Skills Section */
-  .skills {
-    padding: 50px 0;
-    background-color: #31363F;
-    text-align: center;
-  }
-
-  .skills h2 {
-    font-size: 25px;
-    color: #EEEEEE;
-    margin-bottom: 30px;
-  }
-
-  .skills-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 0 50px;
-    flex-wrap: wrap;
-  }
-
-  .skill {
-    background-color: #222831;
-    margin-bottom: 15px;
-    padding: 20px;
-    border-radius: 10px;
-    width: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .skill:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
-
-  .skill h3 {
-    font-size: 24px;
-    color: #76ABAE;
-    margin-bottom: 10px;
-  }
-
-  .skill p {
-    font-size: 16px;
-    color: #EEEEEE;
-  }
-
-}
-
-
-  @keyframes glow {
-    0% {
-        text-shadow: 0 0 5px #76ABAE, 0 0 10px #76ABAE, 0 0 15px #76ABAE;
-    }
-    100% {
-        text-shadow: 0 0 5px #76ABAE, 0 0 20px #0ea7ff, 0 0 40px #76ABAE;
-    }
-}
-  </style>
+  <title>Animated Profile Border</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
- <!-- Navbar -->
- <nav class="navbar" id="navbar">
-    <div class="logo">
-      <span class="highlight">I</span>YY<span class="highlight">O</span>
-    </div>
-    <div class="nav-links">
-      <div class="nav-item">Home</div>
-      <div class="nav-item">About</div>
-      <div class="nav-item">Work</div>
-      <div class="nav-item">Contact</div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div id="particles-js"></div>
-    <div class="hero-content">
-      <h1><span class="greeting">Hi, I'm </span><span class="midlight">Muhammad Dario Eshan</span></h1>
-      <h2 class="static-text"> <span class="typing-text" id="typingText"></span>Designer | Developer | Video Editor</h2>    
-      <p>I create beautiful designs, write clean code, and edit stunning videos.</p>
-      <a href="#work" class="btn">Check My Work</a>
+  <section id="about">
+    <h2>A Bit About Me</h2>
+    <h3>Who Am I?</h3>
+    <div class="profile-image-container">
+      <img src="dario.jpg" alt="Profile Image">
     </div>
   </section>
-
-  <!-- Skills Section -->
-  <section class="skills" id="skills">
-    <h2>My Skills</h2>
-    <div class="skills-container">
-      <div class="skill">
-        <h3>Design</h3>
-        <p>Creative and visually appealing designs using modern tools.</p>
-      </div>
-      <div class="skill">
-        <h3>Coding</h3>
-        <p>Clean and efficient code in web development, especially in React and JavaScript.</p>
-      </div>
-      <div class="skill">
-        <h3>Video Editing</h3>
-        <p>High-quality video editing with attention to detail and storytelling.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2024 Muhammad Dario Eshan. All Rights Reserved.</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-  <!-- Scripts -->
-  <script>
-    let lastScrollTop = 0;
-    const navbar = document.getElementById('navbar');
-
-    window.addEventListener('scroll', function () {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (scrollTop > lastScrollTop) {
-        // Scroll down
-        navbar.classList.remove('visible');
-      } else {
-        // Scroll up
-        navbar.classList.add('visible');
-      }
-
-      lastScrollTop = scrollTop;
-    });
-
-    // Initialize Particles.js
-    particlesJS('particles-js', {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#76ABAE"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          },
-          "polygon": {
-            "nb_sides": 5
-          }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 3,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": false,
-          "distance": 150,
-          "color": "#76ABAE",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 6,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 100,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "bubble": {
-            "distance": 100,
-            "size": 10,
-            "duration": 2,
-            "opacity": 0.8,
-            "speed": 3
-          },
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
-    });
-
-    // Fade-in effect for hero content
-    window.addEventListener('DOMContentLoaded', function () {
-      document.querySelector('.hero-content').classList.add('show');
-    });
-
-    const phrases = [
-      "Saya seorang",           // Bahasa Indonesia
-      "I am a",                // Bahasa Inggris
-      "Soy un",                // Bahasa Spanyol
-      "Je suis un",            // Bahasa Prancis
-      "Ich bin ein",           // Bahasa Jerman
-      "Watashi wa",            // Bahasa Jepang
-      "Eu sou um",            // Bahasa Portugis
-      "Jeg er en",            // Bahasa Denmark
-      "Ik ben een",           // Bahasa Belanda
-      "Я -",                  // Bahasa Rusia (dapat diikuti dengan kata yang sesuai)
-      "我是一个",              // Bahasa Mandarin (pinyin: Wǒ shì yīgè)
-      "أنا",                  // Bahasa Arab (dapat diikuti dengan kata yang sesuai)
-      "मैं एक हूँ",            // Bahasa Hindi (pinyin: Main ek hoon)
-      "Jsem",                 // Bahasa Ceko
-      "Ben bir",              // Bahasa Turki
-
-
-  ];
-  let currentPhraseIndex = 0;
-  let currentCharIndex = 0;
-  const typingText = document.getElementById("typingText");
-  
-  function type() {
-      if (currentCharIndex < phrases[currentPhraseIndex].length) {
-          typingText.textContent += phrases[currentPhraseIndex][currentCharIndex];
-          currentCharIndex++;
-          setTimeout(type, 100); // Durasi mengetik
-      } else {
-          setTimeout(deleteText, 1000); // Tunggu sebelum menghapus
-      }
-  }
-  
-  function deleteText() {
-      if (currentCharIndex > 0) {
-          typingText.textContent = phrases[currentPhraseIndex].substring(0, currentCharIndex - 1);
-          currentCharIndex--;
-          setTimeout(deleteText, 50); // Durasi menghapus
-      } else {
-          currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length; // Pindah ke frase berikutnya
-          setTimeout(type, 500); // Tunggu sebelum mengetik lagi
-      }
-  }
-  
-  // Mulai animasi
-  type();
-  
-  </script>
 </body>
+<style>
+  /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #222831;
+  color: #EEEEEE;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#about h2, #about h3 {
+  text-align: center;
+  margin: 0;
+  color: #76ABAE;
+}
+
+#about h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+#about h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Profile Image Container */
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 20px;
+}
+
+.profile-image-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  position: relative;
+  z-index: 2;
+}
+
+/* Animated Border */
+.profile-image-container::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(49deg,#EEEEEE, #EEEEEE, #76ABAE, #31363F, #222831);
+  background-size: 400% 400%;
+  animation: animate-border 4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes animate-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+</style>
 </html>
