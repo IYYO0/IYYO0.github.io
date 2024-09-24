@@ -712,6 +712,7 @@ a {
 /* Styling untuk Nav Item */
 .sidebar {
   padding: 0;
+  width: 130px;
 }
 
 .hero-content p {
