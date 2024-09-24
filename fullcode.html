@@ -1,92 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated Profile Border</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Themes and Custom Domains</title>
+    <style>
+      * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #F5F7FA;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+section {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #2C3E50;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.themes-preview,
+.domain-preview {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.themes-preview img,
+.domain-preview img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+a {
+    color: #1E73BE;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
 </head>
 <body>
-  <section id="about">
-    <h2>A Bit About Me</h2>
-    <h3>Who Am I?</h3>
-    <div class="profile-image-container">
-      <img src="dario.jpg" alt="Profile Image">
+    <div class="container">
+        <section class="themes-section">
+            <h2>Choose from hundreds of themes to get started.</h2>
+            <p>
+                Take the guesswork out of web design with professionally built, customizable website themes 
+                that let you easily change the look and feel of your entire website. Then leverage built-in 
+                page templates, custom modules, style settings, and more. Your new website will be up and 
+                running in no time.
+            </p>
+            <div class="themes-preview">
+                <img src="WYSIWYG-editor-en.webp" alt="Themes Preview">
+                <p><a href="#">Click to enlarge</a></p>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>Add a custom domain for free.</h2>
+            <p>
+                Using a custom domain for your website helps establish a professional and credible 
+                appearance online. Don’t struggle to connect a custom domain to your CMS or pay for 
+                upgrade fees. With our service, you can easily connect your domain for free in just 
+                a few simple steps. Once connected, you can focus on what really matters — building 
+                a remarkable customer experience.
+            </p>
+            <div class="domain-preview">
+                <img src="WYSIWYG-editor-en.webp" alt="Domains and URLs">
+                <p><a href="#">Click to enlarge</a></p>
+            </div>
+        </section>
     </div>
-  </section>
 </body>
-<style>
-  /* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #222831;
-  color: #EEEEEE;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-}
-
-#about h2, #about h3 {
-  text-align: center;
-  margin: 0;
-  color: #76ABAE;
-}
-
-#about h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-#about h3 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-/* Profile Image Container */
-.profile-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin-top: 20px;
-}
-
-.profile-image-container img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 5px solid transparent;
-  position: relative;
-  z-index: 2;
-}
-
-/* Animated Border */
-.profile-image-container::before {
-  content: '';
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: linear-gradient(49deg,#EEEEEE, #EEEEEE, #76ABAE, #31363F, #222831);
-  background-size: 400% 400%;
-  animation: animate-border 4s linear infinite;
-  z-index: 1;
-}
-
-@keyframes animate-border {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-</style>
 </html>

@@ -6,9 +6,7 @@
   <title>IYYO</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
-
-
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -70,7 +68,7 @@
   </section>
 
   <!-- Goals Section -->
-  <section class="goals" id="goals">
+  <section class="goals" id="goals" data-aos="fade-up" data-aos-duration="1000">
     <h2>My Goals</h2>
     <div class="goals-container">
       <div class="goal">
@@ -89,14 +87,18 @@
   </section>
   
   <section class="about-me" id="aboutme">
-    <h2>A Bit About Me</h2>
-    <h1>Who Am I?</h1>
-    <div class="profile-image-container">
+    <div data-aos="fade-up" data-aos-duration="1000"> 
+      <h2>A Bit About Me</h2>
+      <h1>Who Am I?</h1>
+    </div>
+      
+    <div class="profile-image-container" data-aos="zoom-in" data-aos-duration="1000">
       <img src="dario.jpg" alt="Profile Image">
     </div>
-    <p>Hello! I'm Muhammad Dario Eshan, a high school student with a passion for design, web development, and drawing. I love exploring the world of coding, enjoy watching anime, and appreciate moments of peace and tranquility.</p>
-
-    <div class="skills-grid">
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <p>Hello! I'm Muhammad Dario Eshan, a high school student with a passion for design, web development, and drawing. I love exploring the world of coding, enjoy watching anime, and appreciate moments of peace and tranquility.</p>
+    </div>
+    <div class="skills-grid" data-aos="flip-up" data-aos-duration="1000">
       <div class="skill-card">
           <i class="fas fa-paint-brush"></i>
           <h3>Design</h3>
@@ -136,20 +138,26 @@
   
   <div class="work-content">
       <div class="work-grid" id="design">
-          <div class="work-item"></div>
-          <div class="work-item"></div>
-          <div class="work-item"></div>
+          <div class="work-item">
+            <img src="dario.jpg" alt="">
+          </div>
+          <div class="work-item">
+            <img src="dario.jpg" alt="">
+          </div>
+          <div class="work-item">
+            <img src="dario.jpg" alt="">
+          </div>
           <div class="work-item"></div>
       </div>
       <div class="work-grid" id="web" style="display: none;">
-        <div class="work-item"></div>
+        <div class="work-item"><img src="dario.jpg" alt=""></div>
         <div class="work-item"></div>
         <div class="work-item"></div>
         <div class="work-item"></div>
 
       </div>
       <div class="work-grid" id="software" style="display: none;">
-        <div class="work-item"></div>
+        <div class="work-item"><img src="dario.jpg" alt=""></div>
         <div class="work-item"></div>
         <div class="work-item"></div>
         <div class="work-item"></div>
@@ -160,15 +168,8 @@
         <div class="work-item"></div>
         <div class="work-item"></div>
       </div>
-      <div class="work-details">
-          <h1>H1</h1>
-          <p>P</p>
-      </div>
   </div>
 </section>
-
-
-
 
   <!-- Footer -->
   <footer class="footer">
@@ -177,7 +178,10 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <!-- Scripts -->
   <script src="script.js"></script>
 </body>
