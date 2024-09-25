@@ -462,6 +462,7 @@ a {
   padding: 50px 20px;
   background-color: #222831;
   text-align: center;
+  gap: 10px;
 }
 
 /* Styling Heading */
