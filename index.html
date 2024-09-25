@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="icon" type="xmage/x-icon" href="logorio-removebg-preview (1).png">
 </head>
 <body>
   <!-- Navbar -->
@@ -71,15 +72,15 @@
   <section class="goals" id="goals" data-aos="fade-up" data-aos-duration="1000">
     <h2>My Goals</h2>
     <div class="goals-container">
-      <div class="goal">
+      <div class="goal" data-aos="fade-right" data-aos-duration="1000">
         <h3>Go to Mecca</h3>
         <p>Not just me but my entire family, aamiin.</p>
       </div>
-      <div class="goal">
+      <div class="goal" data-aos="fade-up" data-aos-duration="1000">
         <h3>Work with Google</h3>
         <p>Google workspace looking nice, chill & futuristic</p>
       </div>
-      <div class="goal">
+      <div class="goal" data-aos="fade-left" data-aos-duration="1000">
         <h3>Discipline </h3>
         <p>Im always not discipline on everythings, i want i have commitment on good things</p>
       </div>
@@ -127,49 +128,78 @@
   </div>
 </section>
 
-<section class="work" id="work">
-  <h2>My Work</h2>
-  <div class="work-nav">
-      <a href="#design" class="nav-link active" data-category="design">design</a>
-      <a href="#web" class="nav-link" data-category="web">web</a>
-      <a href="#software" class="nav-link" data-category="software">software</a>
-      <a href="#other" class="nav-link" data-category="other">???</a>
+<section class="work" id="work" data-aos="fade-up">
+  <h2 data-aos="fade-up">My Work</h2>
+  <div class="work-nav" data-aos="fade-up">
+    <a href="#design" class="nav-link active" data-category="design">design</a>
+    <a href="#web" class="nav-link" data-category="web">web</a>
+    <a href="#software" class="nav-link" data-category="software">software</a>
+    <a href="#other" class="nav-link" data-category="other">???</a>
   </div>
-  
-  <div class="work-content">
-      <div class="work-grid" id="design">
-          <div class="work-item">
-            <img src="dario.jpg" alt="">
-          </div>
-          <div class="work-item">
-            <img src="dario.jpg" alt="">
-          </div>
-          <div class="work-item">
-            <img src="dario.jpg" alt="">
-          </div>
-          <div class="work-item"></div>
-      </div>
-      <div class="work-grid" id="web" style="display: none;">
-        <div class="work-item"><img src="dario.jpg" alt=""></div>
-        <div class="work-item"></div>
-        <div class="work-item"></div>
-        <div class="work-item"></div>
 
+  <div class="work-content">
+    <div class="work-grid" id="design" data-aos="fade-up">
+      <div class="work-item" onclick="openModal('img/Poster 17 Agustust.png')">
+        <img src="img/Poster 17 Agustust.png" alt="Design Work 1">
       </div>
-      <div class="work-grid" id="software" style="display: none;">
-        <div class="work-item"><img src="dario.jpg" alt=""></div>
-        <div class="work-item"></div>
-        <div class="work-item"></div>
-        <div class="work-item"></div>
+      <div class="work-item" onclick="openModal('img/TATTOO.png')">
+        <img src="img/TATTOO.png" alt="Design Work 2">
       </div>
-      <div class="work-grid" id="other" style="display: none;">
-        <div class="work-item"></div>
-        <div class="work-item"></div>
-        <div class="work-item"></div>
-        <div class="work-item"></div>
+      <div class="work-item" onclick="openModal('img/Ramen.png')">
+        <img src="img/Ramen.png" alt="Design Work 3">
+      </div>
+      <div class="work-item" onclick="openModal('img/the fear.png')">
+        <img src="img/the fear.png" alt="Design Work 1">
+      </div>
+    </div>
+    <div class="work-grid" id="web" style="display: none;" data-aos="fade-up">
+      <div class="work-item" onclick="openModal('img/1.png')">
+        <img src="img/1.png" alt="Web Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('img/2.png')">
+        <img src="img/2.png" alt="Web Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('img/3.png')">
+        <img src="img/3.png" alt="Web Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('img/4.png')">
+        <img src="img/4.png" alt="Web Work 1">
+      </div>
+    </div>
+    <div class="work-grid" id="software" style="display: none;" data-aos="fade-up">
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+    </div>
+    <div class="work-grid" id="other" style="display: none;" data-aos="fade-up">
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
       </div>
   </div>
 </section>
+
+<!-- Modal -->
+<div class="modal" id="imageModal" onclick="closeModal()">
+  <img id="modalImage" src="" alt="Full Size Image">
+</div>
 
   <!-- Footer -->
   <footer class="footer">

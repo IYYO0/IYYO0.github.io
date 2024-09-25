@@ -139,33 +139,50 @@ let lastScrollTop = 0;
       }
     };
 
-    // Ambil semua link navigasi
-const navLinks = document.querySelectorAll('.nav-link');
-const workGrids = document.querySelectorAll('.work-grid');
+     // Ambil semua link navigasi
+    const navLinks = document.querySelectorAll('.nav-link');
+    const workGrids = document.querySelectorAll('.work-grid');
 
-// Fungsi untuk mengganti konten sesuai kategori yang diklik
-navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
+    // Fungsi untuk mengganti konten sesuai kategori yang diklik
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
         e.preventDefault();  // Mencegah aksi default
 
         // Hilangkan 'active' dari semua link dan tambahkan ke link yang diklik
         navLinks.forEach(link => link.classList.remove('active'));
         this.classList.add('active');
 
-        // Sembunyikan semua grid dan tampilkan grid yang sesuai dengan kategori yang dipilih
-        const category = this.getAttribute('data-category');
+        // Sembunyikan semua grid dengan efek fade
         workGrids.forEach(grid => {
-            if (grid.id === category) {
-                grid.style.display = 'grid';
-            } else {
-                grid.style.display = 'none';
-            }
+          if (grid.id === this.getAttribute('data-category')) {
+            grid.classList.remove('fade'); // Remove fade class for showing
+            grid.classList.add('fade-in'); // Add fade-in class for the selected grid
+            grid.style.display = 'grid'; // Show the selected grid
+          } else {
+            grid.classList.remove('fade-in'); // Remove fade-in class
+            grid.classList.add('fade'); // Add fade class for hiding
+            setTimeout(() => {
+              grid.style.display = 'none'; // Hide the grid after fading out
+            }, 500); // Match this duration to the CSS transition duration
+          }
         });
+      });
     });
-});
 
+    function openModal(imageSrc) {
+      console.log("Modal opened with image:", imageSrc); // Tambahkan ini untuk debug
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = imageSrc; // Set the image source
+      modal.style.display = 'flex'; // Show the modal
+    }
+
+    function closeModal() {
+      console.log("Modal closed"); // Tambahkan ini untuk debug
+      const modal = document.getElementById('imageModal');
+      modal.style.display = 'none'; // Hide the modal
+    }
     
-
     // Fade-in effect for hero content
     window.addEventListener('DOMContentLoaded', function () {
       document.querySelector('.hero-content').classList.add('show');

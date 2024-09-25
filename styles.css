@@ -215,7 +215,7 @@
     opacity: 1;
   }
 
-  /* Skills Section */
+
   .goals {
     padding: 50px 0;
     background: #222831;
@@ -235,6 +235,7 @@
     display: flex;
     justify-content: space-around;
     padding: 0 50px;
+    
   }
 
   .goal {
@@ -370,6 +371,8 @@ a {
   justify-content: center; /* Memusatkan secara horizontal */
   align-items: center; /* Memusatkan secara vertikal */
   flex-wrap: wrap; /* Agar ikon tetap dalam satu baris */
+  padding: 75px;
+  text-align: center;
 }
 
 .social-icons a { 
@@ -383,7 +386,7 @@ a {
   font-size: 1.5rem; /* Ukuran font lebih kecil */
   border-radius: 50%;
   margin: 0 1rem; /* Margin bisa disesuaikan */
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   transition: 0.3s ease;
   color: #eeeeee4b; 
 }
@@ -454,35 +457,34 @@ a {
   color: #EEEEEE;
 }
 
-/* Section work styling */
+/* Section Work Styling */
 .work {
-  padding: 50px;
+  padding: 50px 20px;
   background-color: #222831;
-  color: #EEEEEE;
   text-align: center;
 }
 
-/* Styling heading */
+/* Styling Heading */
 .work h2 {
-  font-size: 25px;
+  font-size: 18px;
   color: #EEEEEE;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-/* Navigation styling */
+/* Navigation Styling */
 .work-nav {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 30px;
 }
 
 .work-nav a {
   text-decoration: none;
   color: #EEEEEE;
-  font-size: 20px;
+  font-size: 1.2em;
   position: relative;
   transition: color 0.3s ease;
 }
@@ -506,41 +508,108 @@ a {
   color: #76ABAE;
 }
 
-/* Work content grid */
+/* Work Content Grid */
 .work-content {
   display: grid;
+  grid-template-columns: 1fr; /* Satu kolom untuk tampilan mobile */
+  gap: 20px;
   width: 90%;
+  margin: 0 auto; /* Center grid */
 }
 
-/* Work items grid */
+/* Work Items Grid */
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Auto-fill for mobile */
+  gap: 20px; /* Space between items */
 }
 
 .work-item {
   background-color: #B0B0B0; /* Temp color for demonstration */
-  width: 350px;
-  height: 250px;
-  
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Crop image */
+  transition: transform 0.3s; /* Smooth scaling */
+  height: 250px; /* Default height for desktop */
+}
+
+.work-item:hover {
+  transform: scale(1.05); /* Zoom on hover */
 }
 
 .work-item img {
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+  cursor: pointer; /* Change cursor to pointer */
 }
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 90%; /* Limit max width */
+  max-height: 90%; /* Limit max height */
+  margin: auto; /* Center the image */
+  display: block; /* Make it block element */
+}
+
+/* Fade Animation */
+.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+
 
 @media only screen and (min-width: 481px) {
   .sidebar {
       display: none; 
   }
 
+  .work {
+    padding: 70px 40px; /* Increased padding for desktop */
+  }
+
+  .work h2 {
+    font-size: 28px; /* Larger heading for desktop */
+    margin-bottom: 40px; /* Increased bottom margin */
+  }
+
+  .work-nav {
+    gap: 50px; /* Larger gap between nav links */
+  }
+
+  .work-nav a {
+    font-size: 1.5em; /* Larger font size for desktop nav */
+  }
+
   .work-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin: 0 10%;
+    width: 80%; /* Wider content area */
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for desktop */
+    gap: 30px; /* Increased gap between items */
+  }
+
+  .work-item {
+    height: 300px; /* Adjusted height for better visibility */
   }
 }
 
@@ -628,7 +697,7 @@ a {
 
   .goal {
     background-color: #222831;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
     padding: 20px;
     border-radius: 10px;
     width: 100%;
@@ -799,6 +868,7 @@ a {
   justify-content: center; /* Memusatkan secara horizontal */
   align-items: center; /* Memusatkan secara vertikal */
   flex-wrap: wrap; /* Agar ikon tetap dalam satu baris */
+  padding: 0;
 }
 
 .social-icons a { 
@@ -812,7 +882,7 @@ a {
   font-size: 1.2rem; /* Ukuran font lebih kecil */
   border-radius: 50%;
   margin: 0 1rem; /* Margin bisa disesuaikan */
-  margin-bottom: 100px;
+  margin-bottom: 20px;
   transition: 0.3s ease;
   color: #eeeeee4b; 
 }
@@ -822,6 +892,19 @@ a {
   transform: scale(1.2) translateY(-5px); /* Skala lebih kecil */
   background-color: #76ABAE;
   box-shadow: 0  0 20px #76ABAE; /* Ukuran shadow lebih kecil */
+}
+
+.work h2 {
+  font-size: 2em; /* Smaller heading on mobile */
+}
+
+.work-nav {
+  flex-direction: column; /* Stack navigation links */
+  margin-bottom: 5px;
+}
+
+.work-item {
+  height: 150px; /* Reduced height for mobile */
 }
 
 
