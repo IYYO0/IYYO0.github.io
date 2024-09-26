@@ -9,6 +9,7 @@
     font-family: Arial, sans-serif;
     background-color: #222831;
     color: #EEEEEE;
+    overflow-x: hidden;
   }
 
   /* Navbar */
