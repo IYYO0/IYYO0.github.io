@@ -49,7 +49,7 @@ let lastScrollTop = 0;
           }
         },
         "size": {
-          "value": 3,
+          "value": 2,
           "random": true,
           "anim": {
             "enable": false,

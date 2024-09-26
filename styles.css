@@ -617,6 +617,9 @@ a {
 }
 
 @media only screen and (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+  }
   .hero-content h1 {
     font-size: 26px;
     color: #EEEEEE;
