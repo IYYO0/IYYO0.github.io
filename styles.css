@@ -516,6 +516,7 @@ a {
   gap: 20px;
   width: 90%;
   margin: 0 auto; /* Center grid */
+  margin-top: 25px;
 }
 
 /* Work Items Grid */
