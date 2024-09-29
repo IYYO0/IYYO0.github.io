@@ -122,12 +122,23 @@ let lastScrollTop = 0;
       "retina_detect": true
     });
 
-    const hamburger = document.getElementById('hamburger');
     const sidebar = document.getElementById('sidebar');
+    const hamburger = document.getElementById('hamburger');
 
+    // Fungsi untuk membuka atau menutup sidebar
     hamburger.addEventListener('click', function() {
-        sidebar.classList.toggle('visible');
+      sidebar.classList.toggle('active');
+      hamburger.classList.toggle('hidden'); // Sembunyikan hamburger saat sidebar aktif
     });
+
+    // Fungsi untuk menutup sidebar dan memunculkan hamburger saat klik di luar sidebar
+    document.addEventListener('click', function(event) {
+      if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+        sidebar.classList.remove('active');
+        hamburger.classList.remove('hidden'); // Munculkan kembali hamburger saat sidebar tertutup
+      }
+    });
+
 
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();

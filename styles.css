@@ -75,14 +75,14 @@
 
   /* Hero Section */
   .hero {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
+    width: 100%;
     background-size: cover;
-    min-width: 100%;
-    min-height: 100vh;
   }
 
   #particles-js {
@@ -292,6 +292,10 @@
   color: #EEEEEE;
 }
 
+.hamburger-icon.hidden {
+  display: none; /* Sembunyikan hamburger ketika sidebar aktif */
+}
+
 /* Sidebar */
 .sidebar {
   position: fixed;
@@ -301,12 +305,12 @@
   height: 100%;
   background-color: rgba(49, 54, 63, 0.9);
   transition: left 0.3s ease;
-  padding: 20px;
+  padding: 25px;
   z-index: 1001;
 }
 
-.sidebar.visible {
-  left: 0; 
+.sidebar.active {
+  left: 0; /* Sidebar muncul */
 }
 
 /* About Me Section */
@@ -360,10 +364,10 @@ a {
 .profile-image-container::before {
   content: '';
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 204px;
+  height: 204px;
   border-radius: 50%;
-  background: linear-gradient(49deg,#EEEEEE, #EEEEEE, #76ABAE, #31363F, #222831);
+  background: linear-gradient(49deg, #EEEEEE, #EEEEEE, #76ABAE, #31363F, #222831);
   background-size: 400% 400%;
   animation: animate-border 4s linear infinite;
   z-index: 1;
