@@ -173,7 +173,7 @@
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-color: #EEEEEE;
+  background-color: #e1dede;
   border-radius: 50%;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -827,7 +827,7 @@ a {
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-color: #EEEEEE;
+  background-color: #e1dede;
   border-radius: 50%;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
