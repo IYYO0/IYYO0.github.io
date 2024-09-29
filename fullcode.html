@@ -3,228 +3,1275 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Work Section</title>
+  <title>IYYO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="icon" type="xmage/x-icon" href="logorio-removebg-preview (1).png">
   <style>
-    /* Reset & Basic Styling */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #222831;
+    color: #EEEEEE;
+  }
+
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(49, 54, 63, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: -60px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    z-index: 1000;
+    transition: top 0.3s ease, opacity 0.3s ease; 
+    opacity: 0;
+  }
+
+  .navbar.visible {
+    top: 0;
+    opacity: 1;
+  }
+
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #EEEEEE;
+  }
+
+  .highlight {
+    color: #76ABAE; 
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .navbar .nav-item {
+    padding: 10px 20px;
+    background-color: rgba(49, 54, 63, 0.8);
+    color: #EEEEEE;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .navbar .nav-item:hover {
+    background-color: #76ABAE;
+    box-shadow: 0 4px 15px rgba(118, 171, 174, 0.5);
+    cursor: pointer;
+  }
+
+  .navbar .nav-item a {
+    text-decoration: none;
+    color:#EEEEEE;
+  }
+
+
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    background: url('hero-bg.jpg') no-repeat center center/cover; /* Optional background image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+  }
+
+  #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .hero-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .midlight {
+    color: hsl(0, 1%, 83%); /* Sesuaikan dengan color palette */
+    text-shadow: 0 0 5px #76ABAE, 0 0 10px #76ABAE, 0 0 15px #76ABAE; /* Efek glow */
+    animation: glow 1.5s infinite alternate;
+}
+
+  .hero-content.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-content h1 {
+    font-size: 48px;
+    color: #EEEEEE;
+    margin-bottom: 20px;
+  }
+
+  .hero-content h2 {
+    font-size: 28px;
+    color: #99d3d6;
+    margin-bottom: 10px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #EEEEEE;
+  }
+
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #76ABAE;
+  box-shadow: 0 0 0 2px #76ABAE;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-top: 30px;
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: #76ABAE;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #EEEEEE;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #222831;
+  border-radius: 12px;
+}
+
+  .animated-button:hover .arr-1 {
+    right: -25%;
+  }
+
+  .animated-button:hover .arr-2 {
+    left: 16px;
+  }
+
+  .animated-button:hover .text {
+    transform: translateX(12px);
+  }
+
+  .animated-button:hover svg {
+    fill:#222831;
+  }
+
+  .animated-button:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px #76ABAE;
+  }
+
+  .animated-button:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+
+
+  .goals {
+    padding: 50px 0;
+    background: #222831;
+    background: linear-gradient(270deg,#222831 0%, #31363f 100%);
+    background: -webkit-linear-gradient(270deg,#222831 0%, #31363f 100%);
+    background: -moz-linear-gradient(270deg,#222831 0%, #31363f 100%);
+    text-align: center;
+  }
+
+  .goals h2 {
+    font-size: 32px;
+    color: #EEEEEE;
+    margin-bottom: 30px;
+  }
+
+  .goals-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 50px;
+    
+  }
+
+  .goal {
+    background-color: #222831;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .goal:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .goal h3 {
+    font-size: 24px;
+    color: #76ABAE;
+    margin-bottom: 10px;
+  }
+
+  .goal p {
+    font-size: 16px;
+    color: #EEEEEE;
+  }
+
+  /* Footer */
+  .footer {
+    background-color: #1d232d;
+    text-align: center;
+    padding: 20px 0;
+    color: #EEEEEE;
+  }
+
+  .typing-text {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    border-right: 3px solid white; 
+    margin-right: 7px
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #EEEEEE;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(49, 54, 63, 0.9);
+  transition: left 0.3s ease;
+  padding: 20px;
+  z-index: 1001;
+}
+
+.sidebar.visible {
+  left: 0; 
+}
+
+/* About Me Section */
+.about-me {
+  text-align: center;
+  padding: 50px 20px;
+  background: #31363f;
+  background: linear-gradient(270deg,#31363f 0%, #222831 80%);
+  background: -webkit-linear-gradient(270deg,#31363f 0%, #222831 80%);
+  background: -moz-linear-gradient(270deg,#31363f 0%, #222831 80%);
+  color: #EEEEEE;
+}
+
+a {
+  text-decoration: none;
+}
+
+.about-me h2 {
+  font-size: 18px;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.about-me h1 {
+  font-size: 36px;
+  color: #76ABAE;
+  margin-bottom: 30px;
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.profile-image-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  position: relative;
+  z-index: 2;
+}
+
+/* Animated Border */
+.profile-image-container::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(49deg,#EEEEEE, #EEEEEE, #76ABAE, #31363F, #222831);
+  background-size: 400% 400%;
+  animation: animate-border 4s linear infinite;
+  z-index: 1;
+}
+
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* Memusatkan secara horizontal */
+  align-items: center; /* Memusatkan secara vertikal */
+  flex-wrap: wrap; /* Agar ikon tetap dalam satu baris */
+  padding: 75px;
+  text-align: center;
+}
+
+.social-icons a { 
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem; /* Ukuran lebih kecil */
+  height: 3rem; /* Ukuran lebih kecil */
+  background-color: transparent;
+  border: 0.1rem solid #eeeeee4b; /* Ukuran border lebih kecil */
+  font-size: 1.5rem; /* Ukuran font lebih kecil */
+  border-radius: 50%;
+  margin: 0 1rem; /* Margin bisa disesuaikan */
+  margin-bottom: 40px;
+  transition: 0.3s ease;
+  color: #eeeeee4b; 
+}
+
+.social-icons a:hover {
+  color: #EEEEEE;
+  transform: scale(1.2) translateY(-5px); /* Skala lebih kecil */
+  background-color: #76ABAE;
+  box-shadow: 0  0 20px #76ABAE; /* Ukuran shadow lebih kecil */
+}
+
+@keyframes animate-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.about-me p {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.skill-card {
+  background-color: #31363F;
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+}
+
+.skill-card i {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.skill-card:hover i {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color:#76ABAE;
+}
+
+.skill-card h3 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #EEEEEE;
+}
+
+/* Section Work Styling */
+.work {
+  padding: 50px 20px;
+  background-color: #222831;
+  text-align: center;
+  gap: 10px;
+}
+
+/* Styling Heading */
+.work h2 {
+  font-size: 18px;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+/* Navigation Styling */
+.work-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.work-nav a {
+  text-decoration: none;
+  color: #EEEEEE;
+  font-size: 1.2em;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.work-nav a.active {
+  font-weight: bold;
+  color: #76ABAE;
+}
+
+.work-nav a.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #76ABAE;
+  left: 0;
+  bottom: -5px;
+}
+
+.work-nav a:hover {
+  color: #76ABAE;
+}
+
+/* Work Content Grid */
+.work-content {
+  display: grid;
+  grid-template-columns: 1fr; /* Satu kolom untuk tampilan mobile */
+  gap: 20px;
+  width: 90%;
+  margin: 0 auto; /* Center grid */
+  margin-top: 25px;
+}
+
+/* Work Items Grid */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Auto-fill for mobile */
+  gap: 20px; /* Space between items */
+}
+
+.work-item {
+  background-color: #B0B0B0; /* Temp color for demonstration */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Crop image */
+  transition: transform 0.3s; /* Smooth scaling */
+  height: 250px; /* Default height for desktop */
+}
+
+.work-item:hover {
+  transform: scale(1.05); /* Zoom on hover */
+}
+
+.work-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 90%; /* Limit max width */
+  max-height: 90%; /* Limit max height */
+  margin: auto; /* Center the image */
+  display: block; /* Make it block element */
+}
+
+
+@media only screen and (min-width: 481px) {
+  .sidebar {
+      display: none; 
+  }
+
+  .work {
+    padding: 70px 40px; /* Increased padding for desktop */
+  }
+
+  .work h2 {
+    font-size: 28px; /* Larger heading for desktop */
+    margin-bottom: 40px; /* Increased bottom margin */
+  }
+
+  .work-nav {
+    gap: 50px; /* Larger gap between nav links */
+  }
+
+  .work-nav a {
+    font-size: 1.5em; /* Larger font size for desktop nav */
+  }
+
+  .work-content {
+    width: 80%; /* Wider content area */
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for desktop */
+    gap: 30px; /* Increased gap between items */
+  }
+
+  .work-item {
+    height: 300px; /* Adjusted height for better visibility */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 26px;
+    color: #EEEEEE;
+    margin-bottom: 10px;
+  }
+
+  .greeting {
+    display: block; 
+    font-size: 18px; 
+    color: #EEEEEE;
+    margin-bottom: 6px;
+    text-align: start;
+    text-align: center;
+}
+
+
+  .hero-content h2 {
+    font-size: 15px;
+    color: #99d3d6;
+    margin-bottom: 10px;
+  }
+
+  .typing-text {
+    font-size: 15px;
+    color: #EEEEEE;
+    margin-bottom: 10px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    border-right: 3px solid white;
+    margin-right: 7px
+}
+
+.hero-content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #EEEEEE;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #76ABAE;
+  color: #222831;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 13px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #EEEEEE;
+  color: #222831;
+}
+
+.footer {
+  background-color: #1d232d;
+  text-align: center;
+  padding: 15px 0;
+  color: #EEEEEE;
+  font-size: 12px;
+}
+
+  /* Skills Section */
+  .goals {
+    padding: 50px 0;
+    background-color: #31363F;
+    text-align: center;
+  }
+
+  .goals h2 {
+    font-size: 25px;
+    color: #EEEEEE;
+    margin-bottom: 30px;
+  }
+
+  .goals-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 50px;
+    flex-wrap: wrap;
+  }
+
+  .goal {
+    background-color: #222831;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .goal:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .goal h3 {
+    font-size: 24px;
+    color: #76ABAE;
+    margin-bottom: 10px;
+  }
+
+  .skill p {
+    font-size: 16px;
+    color: #EEEEEE;
+  }
+
+  .nav-links {
+    display: none; 
+  }
+  .hamburger {
+      display: block; 
+  }
+
+/* Nav Links di Sidebar */
+.sidebar .nav-links {
+  display: flex;
+  flex-direction: column; 
+}
+
+.sidebar .nav-item {
+  margin-bottom: 10px; 
+}
+
+.sidebar .nav-item a {
+  display: block;
+  padding: 20px 20px;
+  color: #EEEEEE;
+  text-decoration: none; 
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.sidebar .nav-item a:hover {
+  background-color: rgba(54, 58, 66, 0.507); 
+  transform: scale(1.00); 
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3); 
+}
+
+.highlight {
+  color: #76ABAE; 
+}
+
+.sidebar .logo {
+  background-color: #222831; 
+  margin-bottom: 25px;
+  color: #EEEEEE; 
+  font-size: 24px; 
+  text-align: center; 
+  padding: 13px 0; 
+  flex: 0 0 auto; 
+}
+
+/* Styling untuk Nav Item */
+.sidebar {
+  padding: 0;
+  width: 130px;
+}
+
+.hero-content p {
+  width: 80%;
+}
+
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 11px 26px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 14px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #76ABAE;
+  box-shadow: 0 0 0 2px #76ABAE;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 17px;
+  fill: #76ABAE;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #EEEEEE;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #222831;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: #222831;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px #76ABAE;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* Memusatkan secara horizontal */
+  align-items: center; /* Memusatkan secara vertikal */
+  flex-wrap: wrap; /* Agar ikon tetap dalam satu baris */
+  padding: 0;
+}
+
+.social-icons a { 
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem; /* Ukuran lebih kecil */
+  height: 2.5rem; /* Ukuran lebih kecil */
+  background-color: transparent;
+  border: 0.1rem solid #eeeeee4b; /* Ukuran border lebih kecil */
+  font-size: 1.2rem; /* Ukuran font lebih kecil */
+  border-radius: 50%;
+  margin: 0 1rem; /* Margin bisa disesuaikan */
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+  color: #eeeeee4b; 
+}
+
+.social-icons a:hover {
+  color: #EEEEEE;
+  transform: scale(1.2) translateY(-5px); /* Skala lebih kecil */
+  background-color: #76ABAE;
+  box-shadow: 0  0 20px #76ABAE; /* Ukuran shadow lebih kecil */
+}
+
+.work h2 {
+  font-size: 2em; /* Smaller heading on mobile */
+}
+
+.work-nav {
+  flex-direction: column; /* Stack navigation links */
+  margin-bottom: 5px;
+}
+
+.work-item {
+  height: 150px; /* Reduced height for mobile */
+}
+
+
+}
+
+
+  @keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #76ABAE, 0 0 10px #76ABAE, 0 0 15px #76ABAE;
     }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0f1624;
-      color: #EEEEEE;
-      line-height: 1.6;
+    100% {
+        text-shadow: 0 0 5px #76ABAE, 0 0 20px #0ea7ff, 0 0 40px #76ABAE;
     }
-
-    /* Section Work Styling */
-    .work {
-      padding: 50px 20px;
-      background-color: #222831;
-      text-align: center;
-    }
-
-    /* Styling Heading */
-    .work h2 {
-      font-size: 2.5em;
-      color: #EEEEEE;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 30px;
-    }
-
-    /* Navigation Styling */
-    .work-nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-
-    .work-nav a {
-      text-decoration: none;
-      color: #EEEEEE;
-      font-size: 1.2em;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    .work-nav a.active {
-      font-weight: bold;
-      color: #76ABAE;
-    }
-
-    .work-nav a.active::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 3px;
-      background-color: #76ABAE;
-      left: 0;
-      bottom: -5px;
-    }
-
-    .work-nav a:hover {
-      color: #76ABAE;
-    }
-
-    /* Work Content Grid */
-    .work-content {
-      display: grid;
-      grid-template-columns: 1fr; /* Satu kolom untuk tampilan mobile */
-      gap: 20px;
-      width: 90%;
-      margin: 0 auto; /* Center grid */
-    }
-
-    /* Work Items Grid */
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Auto-fill for mobile */
-      gap: 20px; /* Space between items */
-    }
-
-    .work-item {
-      background-color: #B0B0B0; /* Temp color for demonstration */
-      border-radius: 10px; /* Rounded corners */
-      overflow: hidden; /* Crop image */
-      transition: transform 0.3s; /* Smooth scaling */
-      height: 250px; /* Default height for desktop */
-    }
-
-    .work-item:hover {
-      transform: scale(1.05); /* Zoom on hover */
-    }
-
-    .work-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Maintain aspect ratio */
-      cursor: pointer; /* Change cursor to pointer */
-    }
-
-    /* Modal Styles */
-    .modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1000; /* Sit on top */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal img {
-      max-width: 90%; /* Limit max width */
-      max-height: 90%; /* Limit max height */
-      margin: auto; /* Center the image */
-      display: block; /* Make it block element */
-    }
-
-    /* Fade Animation */
-    .fade {
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .fade-in {
-      opacity: 1;
-    }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .work h2 {
-        font-size: 2em; /* Smaller heading on mobile */
-      }
-
-      .work-nav {
-        flex-direction: column; /* Stack navigation links */
-      }
-
-      .work-item {
-        height: 150px; /* Reduced height for mobile */
-      }
-    }
-
-    /* Desktop Responsiveness */
-    @media (min-width: 769px) {
-      .work {
-        padding: 70px 40px; /* Increased padding for desktop */
-      }
-
-      .work h2 {
-        font-size: 3em; /* Larger heading for desktop */
-        margin-bottom: 40px; /* Increased bottom margin */
-      }
-
-      .work-nav {
-        gap: 50px; /* Larger gap between nav links */
-      }
-
-      .work-nav a {
-        font-size: 1.5em; /* Larger font size for desktop nav */
-      }
-
-      .work-content {
-        width: 80%; /* Wider content area */
-      }
-
-      .work-grid {
-        grid-template-columns: repeat(2, 1fr); /* Two columns for desktop */
-        gap: 30px; /* Increased gap between items */
-      }
-
-      .work-item {
-        height: 300px; /* Adjusted height for better visibility */
-      }
-    }
+}
   </style>
 </head>
 <body>
-  <section class="work" id="work">
-    <h2>My Work</h2>
-    <div class="work-nav">
-      <a href="#design" class="nav-link active" data-category="design">design</a>
-      <a href="#web" class="nav-link" data-category="web">web</a>
-      <a href="#software" class="nav-link" data-category="software">software</a>
-      <a href="#other" class="nav-link" data-category="other">???</a>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <span class="highlight">I</span>YY<span class="highlight">O</span>
     </div>
-    
-    <div class="work-content">
-      <div class="work-grid fade-in" id="design">
-        <div class="work-item" onclick="openModal('Poster 17 Agustust.png')"><img src="Poster 17 Agustust.png" alt="Design Work 1"></div>
-        <div class="work-item" onclick="openModal('the fear.png')"><img src="the fear.png" alt="Design Work 2"></div>
-        <div class="work-item" onclick="openModal('TATTOO.png')"><img src="TATTOO.png" alt="Design Work 3"></div>
-        <div class="work-item" onclick="openModal('Ramen.png')"><img src="Ramen.png" alt="Design Work 4"></div>
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      &#9776; <!-- Simbol hamburger --> 
+    </div>
+    <div class="nav-links">
+      <div class="nav-item"><a href="#home">Home</a></div>
+      <div class="nav-item"><a href="#aboutme">About </a></div>
+      <div class="nav-item"><a href="#media-sosial">Contact</a></div>
+      <div class="nav-item"><a href="#work">work</a></div>
+    </div>
+  </nav>
 
-      </div>
-      <div class="work-grid fade" id="web" style="display: none;">
-        <div class="work-item" onclick="openModal('WYSIWYG-editor-en.webp')"><img src="WYSIWYG-editor-en.webp" alt="Web Work 1"></div>
-        <div class="work-item" onclick="openModal('WYSIWYG-editor-en.webp')"><img src="WYSIWYG-editor-en.webp" alt="Web Work 2"></div>
-        <div class="work-item" onclick="openModal('WYSIWYG-editor-en.webp')"><img src="WYSIWYG-editor-en.webp" alt="Web Work 3"></div>
-      </div>
-      <div class="work-grid fade" id="software" style="display: none;">
-        <div class="work-item" onclick="openModal('dario.jpg')"><img src="dario.jpg" alt="Software Work 1"></div>
-      </div>
-      <div class="work-grid fade" id="other" style="display: none;">
-        <div class="work-item"></div>
-      </div>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="logo">
+        <span class="highlight">I</span>YY<span class="highlight">O</span>
+    </div>
+    <div class="nav-links">
+        <div class="nav-item"><a href="#home">Home</a></div>
+        <div class="nav-item"><a href="#aboutme">About</a></div>
+        <div class="nav-item"><a href="#media-sosial">Contact</a></div>
+        <div class="nav-item"><a href="#work">work</a></div>
+    </div>
+</div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <h1><span class="greeting">^ω^ Hi, I'm </span><span class="midlight">Muhammad Dario Eshan</span></h1>
+      <h2 class="static-text"> <span class="typing-text" id="typingText"></span>Designer | Developer | Video Editor</h2>    
+      <center><p>I create beautiful designs, write clean code, and edit stunning videos.</p></center>
+      <center> 
+        <a href="#work">
+          <button class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+            <span class="text">Check My Work</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+          </button>
+        </a>
+      </center>
     </div>
   </section>
 
-  <!-- Modal -->
-  <div class="modal" id="imageModal" onclick="closeModal()">
-    <img id="modalImage" src="" alt="Full Size Image">
+  <!-- Goals Section -->
+  <section class="goals" id="goals" data-aos="fade-up" data-aos-duration="1000">
+    <h2>My Goals</h2>
+    <div class="goals-container">
+      <div class="goal" data-aos="fade-right" data-aos-duration="1000">
+        <h3>Go to Mecca</h3>
+        <p>Not just me but my entire family, aamiin.</p>
+      </div>
+      <div class="goal" data-aos="fade-up" data-aos-duration="1000">
+        <h3>Work with Google</h3>
+        <p>Google workspace looking nice, chill & futuristic</p>
+      </div>
+      <div class="goal" data-aos="fade-left" data-aos-duration="1000">
+        <h3>Discipline </h3>
+        <p>Im always not discipline on everythings, i want i have commitment on good things</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="about-me" id="aboutme">
+    <div data-aos="fade-up" data-aos-duration="1000"> 
+      <h2>A Bit About Me</h2>
+      <h1>Who Am I?</h1>
+    </div>
+      
+    <div class="profile-image-container" data-aos="zoom-in" data-aos-duration="1000">
+      <img src="dario.jpg" alt="Profile Image">
+    </div>
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <p>Hello! I'm Muhammad Dario Eshan, a high school student with a passion for design, web development, and drawing. I love exploring the world of coding, enjoy watching anime, and appreciate moments of peace and tranquility.</p>
+    </div>
+    <div class="skills-grid" data-aos="flip-up" data-aos-duration="1000">
+      <div class="skill-card">
+          <i class="fas fa-paint-brush"></i>
+          <h3>Design</h3>
+      </div>
+      <div class="skill-card">
+        <i class="fa-solid fa-code"></i>
+          <h3>Web Dev</h3>
+      </div>
+      <div class="skill-card">
+          <i class="fas fa-cogs"></i>
+          <h3>Software</h3>
+      </div>
+      <div class="skill-card">
+        <i class="fa-solid fa-question"></i>
+          <h3>Unknown</h3>
+      </div>
+  </div>
+</section>
+
+<section class="media-sosial" id="media-sosial">
+  <div class="social-icons">
+    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="https://github.com/IYYO0"><i class="fa-brands fa-github"></i></a>
+    <a href="https://www.youtube.com/@muhammaddarioeshan"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://www.instagram.com/yamitorizz/"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+</section>
+
+<section class="work" id="work" data-aos="fade-up" data-aos-duration="1500">
+  <h2 data-aos="fade-up" data-aos-duration="100">My Work</h2>
+  <div class="work-nav" data-aos="fade-up">
+    <a href="#design" class="nav-link active" data-category="design">design</a>
+    <a href="#web" class="nav-link" data-category="web">web</a>
+    <a href="#software" class="nav-link" data-category="software">software</a>
+    <a href="#other" class="nav-link" data-category="other">???</a>
   </div>
 
+  <div class="work-content">
+    <div class="work-grid" id="design" data-aos="fade-up" data-aos-duration="2500">
+      <div class="work-item" onclick="openModal('img/Poster 17 Agustust.png')">
+        <img src="img/Poster 17 Agustust.png" alt="Design Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('img/TATTOO.png')">
+        <img src="img/TATTOO.png" alt="Design Work 2">
+      </div>
+      <div class="work-item" onclick="openModal('img/Ramen.png')">
+        <img src="img/Ramen.png" alt="Design Work 3">
+      </div>
+      <div class="work-item" onclick="openModal('img/the fear.png')">
+        <img src="img/the fear.png" alt="Design Work 1">
+      </div>
+    </div>
+    <div class="work-grid" id="web" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
+      <div class="work-item" onclick="openModal('img/1.png')">
+        <img src="img/1.png" alt="Web Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('img/2.png')">
+        <img src="img/2.png" alt="Web Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('img/3.png')">
+        <img src="img/3.png" alt="Web Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('img/4.png')">
+        <img src="img/4.png" alt="Web Work 1">
+      </div>
+    </div>
+    <div class="work-grid" id="software" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+    </div>
+    <div class="work-grid" id="other" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+      <div class="work-item" onclick="openModal('dario.jpg')">
+        <img src="dario.jpg" alt="Software Work 1">
+      </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="imageModal" onclick="closeModal()">
+  <img id="modalImage" src="" alt="Full Size Image">
+</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2024 Muhammad Dario Eshan. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    // Ambil semua link navigasi
+    AOS.init();
+  </script>
+  <!-- Scripts -->
+</body>
+<script>
+  let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', function () {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+        // Scroll down
+        navbar.classList.remove('visible');
+      } else {
+        // Scroll up
+        navbar.classList.add('visible');
+      }
+
+      lastScrollTop = scrollTop;
+    });
+
+    // Initialize Particles.js
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#76ABAE"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 2,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": false,
+          "distance": 150,
+          "color": "#76ABAE",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 100,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 100,
+            "size": 10,
+            "duration": 2,
+            "opacity": 0.8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger.addEventListener('click', function() {
+        sidebar.classList.toggle('visible');
+    });
+
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+    
+    document.onkeydown = function(e) {
+      if (e.keyCode == 123) { // Disable F12
+        return false;
+      }
+    };
+
+     // Ambil semua link navigasi
     const navLinks = document.querySelectorAll('.nav-link');
     const workGrids = document.querySelectorAll('.work-grid');
 
@@ -254,19 +1301,71 @@
       });
     });
 
-    // Fungsi untuk membuka modal
     function openModal(imageSrc) {
+      console.log("Modal opened with image:", imageSrc); // Tambahkan ini untuk debug
       const modal = document.getElementById('imageModal');
       const modalImage = document.getElementById('modalImage');
       modalImage.src = imageSrc; // Set the image source
       modal.style.display = 'flex'; // Show the modal
     }
 
-    // Fungsi untuk menutup modal
     function closeModal() {
+      console.log("Modal closed"); // Tambahkan ini untuk debug
       const modal = document.getElementById('imageModal');
       modal.style.display = 'none'; // Hide the modal
     }
-  </script>
-</body>
+    
+    // Fade-in effect for hero content
+    window.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('.hero-content').classList.add('show');
+    });
+
+    const phrases = [
+      "Saya seorang",           // Bahasa Indonesia
+      "I am a",                // Bahasa Inggris
+      "Soy un",                // Bahasa Spanyol
+      "Je suis un",            // Bahasa Prancis
+      "Ich bin ein",           // Bahasa Jerman
+      "Watashi wa",            // Bahasa Jepang
+      "Eu sou um",            // Bahasa Portugis
+      "Jeg er en",            // Bahasa Denmark
+      "Ik ben een",           // Bahasa Belanda
+      "Я -",                  // Bahasa Rusia (dapat diikuti dengan kata yang sesuai)
+      "我是一个",              // Bahasa Mandarin (pinyin: Wǒ shì yīgè)
+      "أنا",                  // Bahasa Arab (dapat diikuti dengan kata yang sesuai)
+      "मैं एक हूँ",            // Bahasa Hindi (pinyin: Main ek hoon)
+      "Jsem",                 // Bahasa Ceko
+      "Ben bir",              // Bahasa Turki
+
+
+  ];
+  let currentPhraseIndex = 0;
+  let currentCharIndex = 0;
+  const typingText = document.getElementById("typingText");
+  
+  function type() {
+      if (currentCharIndex < phrases[currentPhraseIndex].length) {
+          typingText.textContent += phrases[currentPhraseIndex][currentCharIndex];
+          currentCharIndex++;
+          setTimeout(type, 100); // Durasi mengetik
+      } else {
+          setTimeout(deleteText, 1000); // Tunggu sebelum menghapus
+      }
+  }
+  
+  function deleteText() {
+      if (currentCharIndex > 0) {
+          typingText.textContent = phrases[currentPhraseIndex].substring(0, currentCharIndex - 1);
+          currentCharIndex--;
+          setTimeout(deleteText, 50); // Durasi menghapus
+      } else {
+          currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length; // Pindah ke frase berikutnya
+          setTimeout(type, 500); // Tunggu sebelum mengetik lagi
+      }
+  }
+  
+  // Mulai animasi
+  type();
+  
+</script>
 </html>
