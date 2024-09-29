@@ -379,7 +379,7 @@ a {
   justify-content: center; /* Memusatkan secara horizontal */
   align-items: center; /* Memusatkan secara vertikal */
   flex-wrap: wrap; /* Agar ikon tetap dalam satu baris */
-  padding: 75px;
+  padding: 10px;
   text-align: center;
 }
 
