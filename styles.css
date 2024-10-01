@@ -606,7 +606,7 @@ a {
   .work h1 {
     font-size: 36px;
     color: #76ABAE;
-    margin-bottom: 30px;
+  margin-bottom: 30px;
   }
 
   .work-nav {
@@ -912,8 +912,22 @@ a {
   box-shadow: 0  0 20px #76ABAE; /* Ukuran shadow lebih kecil */
 }
 
+.work {
+  padding: 70px 40px; /* Increased padding for desktop */
+}
+
 .work h2 {
-  font-size: 2em; /* Smaller heading on mobile */
+  font-size: 18px;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.work h1 {
+  font-size: 29px;
+  color: #76ABAE;
+  margin-bottom: 30px;
 }
 
 .work-nav {
