@@ -463,6 +463,7 @@ a {
   font-size: 18px;
   margin-top: 10px;
   color: #EEEEEE;
+  cursor: context-menu;
 }
 
 /* Section Work Styling */
@@ -479,7 +480,6 @@ a {
   color: #EEEEEE;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 30px;
 }
 
 /* Navigation Styling */
@@ -487,7 +487,6 @@ a {
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin-bottom: 30px;
 }
 
 .work-nav a {
@@ -597,8 +596,17 @@ a {
   }
 
   .work h2 {
-    font-size: 28px; /* Larger heading for desktop */
-    margin-bottom: 40px; /* Increased bottom margin */
+    font-size: 18px;
+    color: #EEEEEE;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .work h1 {
+    font-size: 36px;
+    color: #76ABAE;
+    margin-bottom: 30px;
   }
 
   .work-nav {
